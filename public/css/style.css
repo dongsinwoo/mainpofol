@@ -1,0 +1,998 @@
+@charset "utf-8";
+
+body{
+  background-color: #fff;
+  overflow-x: hidden;
+  letter-spacing: -.5;
+  overflow-y:scroll;
+}
+
+#root{
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+/* scrollbar */
+.scroll-gage{
+  width: 100%;
+  height: 10px;
+  background: rgb(255, 255, 255);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+.scroll-gage .scroll-bar{
+  width: 0%;
+  height: 100%;
+  background-color: #a4ffb1;
+  transition: all 0.35s;
+}
+/*// scrollbar */
+
+/* noise */
+.noise{
+  background-image: url(../img/noise-full.png);
+  background-repeat: repeat;
+  position: fixed;
+  top: -100%;
+  left: -50%;
+  width: 300vw;
+  height: 300vh;
+  /* opacity: 0.03; */
+  opacity: 0;
+  animation: grain 6s steps(10) infinite;
+  pointer-events: none;
+  z-index: 10005;
+}
+
+@keyframes grain {
+  0%,100%{
+    transform: translate(0, 0);
+  }
+  10%{
+    transform: translate(-5%, -10%);
+  }
+  20%{
+    transform: translate(-15%, 5%);
+  }
+  30%{
+    transform: translate(7%, -25%);
+  }
+  40%{
+    transform: translate(-5%, 25%);
+  }
+  50%{
+    transform: translate(-15%, 10%);
+  }
+  60%{
+    transform: translate(15%, 0%);
+  }
+  70%{
+    transform: translate(0%, 15%);
+  }
+  80%{
+    transform: translate(3%, 35%);
+  }
+  90%{
+    transform: translate(-10%, 10%);;
+  }
+}
+/* //noise */
+/* old */
+.old{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url(../img/old.webp) no-repeat center;
+  background-size: cover;
+  z-index: 12000;
+  /* opacity: 0.05; */
+  opacity: 0;
+  pointer-events: none;
+}
+/* //old */
+/* 헤더 */
+header{
+  position: fixed;
+  top: -80px;
+  left: 0;
+  height: 80px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transition: all 0.35s;
+  z-index: 10001;
+}
+.main nav a{
+  color: #fff;
+}
+
+
+header nav .head-menu2::before,
+header nav .head-menu2::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 2px;
+  border-radius: 5px;
+  background-color: #6A6868;
+  transition: all 0.35s;
+  
+}
+
+header nav .head-menu2::before{
+  width: 0;
+  z-index: 9;
+}
+header nav .head-menu2:hover:before{
+  width: 100%;
+  background-color: #fff;
+}
+header nav{
+  margin-right: 4rem;
+}
+
+header nav a{
+  margin-right: 2rem;
+  color: #343434;
+  font-size: 1.5rem;
+  position: relative;
+}
+header nav a:last-child{
+  margin-right: 0;
+}
+header nav .head-menu::before,
+header nav .head-menu::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 2px;
+  border-radius: 5px;
+  background-color: #d9d9d9;
+  transition: all 0.35s;
+  
+}
+header nav .head-menu::before{
+  width: 0;
+  z-index: 9;
+}
+header nav .head-menu.border-color::before{
+  background-color: #343434;
+  width: 100%;
+}
+header nav .head-menu2.border-color::before{
+  background-color: #fff;
+  width: 100%;
+}
+header nav .head-menu:hover:before{
+  width: 100%;
+  background-color: #343434;
+}
+/* //헤더 */
+/* porfile */
+.profile{
+  position: fixed;
+  left: 0;
+  top:  -600px;
+  background-color: #505050;
+  width: 100%;
+  height: 60%;
+  transition: all 0.5s cubic-bezier(.26,.46,.65,.98);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.profile.up{
+  top: 0;
+}
+.profile-filter{
+  position: absolute;
+  width: 1250px;
+  height: 540px;
+  left: 50%; 
+  top: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.profile-inner{
+  width: 1200px;
+  height: 500px;
+  background-color: #fff;
+}
+.profile-inner .flex-box{
+  display: flex;
+  justify-content: space-between;
+}
+.profile-inner .flex-box .identity{
+  margin-top: 80px;
+  margin-left: 105px;
+}
+.profile-inner .flex-box .identity p{
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #343434;
+  font-weight: 600;
+}
+.profile-inner .flex-box .identity p:last-child{
+  margin-bottom: 0;
+}
+.profile-inner .flex-box .url{
+  margin-top: 80px;
+  margin-right: 105px;
+  display: flex;
+  align-items: flex-start;
+}
+.profile-inner .flex-box .url p{
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 12px;
+  color: #343434;
+}
+.profile-inner .flex-box .url .git{
+  margin-right: 32px;
+}
+.profile-inner .flex-box .url .git a{
+  display: block;
+  width: 100px;
+  height: 100px;
+}
+.profile-inner .flex-box .url .kakaoqr img{
+  width: 112px;
+  height: 112px;
+}
+
+.profile-inner .skill{
+  margin-top: 64px;
+  margin-left: 104px;
+}
+.profile-inner .skill .top-text{
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: #343434;
+}
+.profile-inner .skill .skills{
+  display: flex;
+  margin-top: 24px;
+}
+.profile-inner .skill .skills p {
+  font-size: 1.5rem;
+  font-weight: 900;
+  margin-right: 40px; 
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: #fff;
+  transition: all 0.35s;
+}
+.profile-inner .skill .skills p:last-child{
+  margin-right: 0;
+}
+
+/* 스킬 이미지 넣기 */
+.profile-inner .skill .skills p::after{
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  height: 100%;
+  transition: all 0.35s;
+}
+.profile-inner .skill .skills .html:hover{
+  color: rgb(255, 82, 82);
+}
+.profile-inner .skill .skills .html::after{
+  background: url(../img/html.png)no-repeat center;
+  background-size: cover;
+}
+
+.profile-inner .skill .skills .css:hover{
+  color: rgb(73, 91, 255);
+}
+.profile-inner .skill .skills .css::after{
+  background: url(../img/css.png)no-repeat center;
+  background-size: cover;
+}
+
+.profile-inner .skill .skills .js:hover{
+  color: rgb(163, 184, 45);
+}
+.profile-inner .skill .skills .js::after{
+  background: url(../img/js.png)no-repeat center;
+  background-size: cover;
+}
+
+.profile-inner .skill .skills .react:hover{
+  color: rgb(68, 134, 255);
+}
+.profile-inner .skill .skills .react::after{
+  background: url(../img/react.png)no-repeat center;
+  background-size: cover;
+}
+
+.profile-inner .skill .skills .node:hover{
+  color: rgb(49, 199, 124);
+}
+.profile-inner .skill .skills .node::after{
+  background: url(../img/node.png)no-repeat center;
+  background-size: cover;
+}
+/* //스킬 이미지 넣기 */
+
+.profile-inner .skill .skills p:hover::after{
+  opacity: 0;
+}
+/* profile */
+/* profile btn */
+.profile-btn{
+  position: absolute;
+  cursor: pointer;
+  bottom: -15%;
+  left: 5%;
+  transform: rotate(-90deg);
+  transition: all 0.5s cubic-bezier(.26,.46,.65,.98);
+  z-index: 100001;
+  background-color: #634e4e;
+}
+.profile-btn p{
+  color: #fff;
+  font-size: 2rem;
+  animation: scale infinite 2000ms linear;
+  transition: all 0.35s;
+  font-weight: 500;
+  padding: 8px 20px;
+}
+
+.profile-btn:hover p{
+  animation: none;
+}
+/*// profile btn */
+
+/* welcome */
+.bottom,
+.top{
+  position: fixed;
+  font-size: 6.25rem;
+  color: #343434;
+  transition: all 0.35s;
+  opacity: 1;
+  z-index: 100;
+  font-family: "Riseling";
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.top{
+  left: 10%;
+  top: 20%;
+}
+.bottom{
+  right: 10%;
+  bottom: 20%;
+}
+/* //welcome */
+
+/* one */
+.one{
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 90;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: all 0.35s;
+  pointer-events: none;
+}
+
+.one .one-item{
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #392f31;
+  backface-visibility: hidden;
+  transition: all 0.35s;
+}
+/* //one */
+
+/* 텍스드 픽스드 */
+.txt-fixed{
+  position: fixed;
+  background-color: transparent;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 99;
+  width: 100%;
+  pointer-events: none;
+}
+.txt-fixed p{
+  text-align: center;
+  font-size: 2.5rem;
+  color: #fff;
+  font-weight: 400;
+  opacity: 0;
+  transition: all 0.5s;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+/*//텍스트 픽스드 */
+
+.area1{
+  background: url(../img/home.svg) no-repeat center;
+  background-size: cover;
+  background-attachment:initial;
+  background-attachment: fixed;
+  background-color: rgb(255, 255, 255);
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+/* moon */
+.area1 .moon{
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  width: 210px;
+  height: 210px;
+  background: url(../img/cmoon.png) no-repeat center;
+  background-size: cover;
+  transition: all 0.35s;
+  animation: rotate infinite 5000ms both;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@keyframes rotate {
+  50%{
+    transform: rotate(60deg);
+  }
+  100%{
+    transform: rotate(0deg);
+  }
+}
+.area1 .moon::after{
+  content: '';
+  position: absolute;
+  background:url(../img/bmoon.png) no-repeat center;
+  background-size: cover;
+  width: 210px;
+  height: 210px;
+  opacity: 0;
+  transition: all 0.35s;
+}
+.area1 .moon:hover{
+  animation: none;
+}
+.area1 .moon:hover::after{
+  opacity: 1;
+  /* width: 200px; */
+}
+.area1 .moon:hover p{
+  opacity: 1;
+}
+.area1 .moon p{
+  opacity: 0;
+  transition: all 0.35s;
+  font-size: 2rem;
+  color: #343434;
+  z-index: 9;
+}
+/* //moon */
+
+/* scroll-area */
+.scroll-area{
+  width: 100%;
+  height: 100vh;
+  /* background-color: #fff; */
+}
+/* //scroll-area */
+
+/* project-fiexd */
+.project-fiexd{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(63, 63, 63, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1000;
+}
+.project-fiexd .project-item{
+  position: absolute;
+  width: 700px;
+  height:auto;
+  background-color: #fff;
+  overflow-y: scroll;
+  transition: all .35s;
+  transform: scale(0);
+}
+.project-fiexd .project-item.target{
+  transform: scale(1);
+}
+.project-fiexd .project-item:nth-child(3) .a-box{
+  margin-top: 5rem;
+}
+.project-fiexd .project-item .x-btn{
+  display: block;
+  font-size: 2rem;
+  color: #343434;
+  font-family: 'Riseling';
+  font-weight: 600;
+  margin-top: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.project-fiexd .project-item .img-box{
+  width: 460px;
+  height: 280px;
+  margin: 0 auto;
+  margin-top: 3rem;
+}
+
+.project-fiexd .project-item .main-text{
+  width: 460px;
+  margin: 2rem auto;
+}
+.project-fiexd .project-item .main-text .haed{
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.project-fiexd .project-item .main-text .hade:first-child{
+  margin-bottom: 12px;
+}
+.project-fiexd .project-item .main-text .sub{
+  font-size: 1.25rem;
+  color: #979797;
+  margin-top: 24px;
+}
+
+.project-fiexd .project-item .a-box{
+  width: 100%;
+  text-align: center;
+  margin-top: 7.25rem;
+  margin-bottom: 3rem;
+}
+.project-fiexd .project-item .a-btn{
+  font-size: 1.5rem;
+  padding: 8px 2rem;
+  color: #343434;
+  position: relative;
+}
+.project-fiexd .project-item .a-btn::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left:calc(50% - 50%);
+  width: 0;
+  height: 100%;
+  transition: all .35s;
+  border: 2px solid #343434;
+}
+.project-fiexd .project-item .a-btn:hover::after{
+  width: 100%;
+}
+
+/*// project-fiexd */
+
+/* project */
+.project-box{
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.project-box h1{
+  font-size: 10rem;
+  color: #fff;
+  cursor: pointer;
+}
+.project{
+  position: absolute;
+  top: 0;
+  width:100%;
+  height:100vh;
+  background: url(../img/project.png)no-repeat center;
+  background-size: cover;
+  opacity: 0;
+  transition: all 1s;
+  pointer-events: none;
+}
+
+.project .back-next{
+  position: absolute;
+  top: 5%;
+  display: flex;
+  justify-content: start;
+  width: 100%;
+}
+.project .back-next a{
+  color: rgb(224, 224, 224);
+  font-size: 4rem;
+  font-weight: 400;
+}
+.project .back-next .back{
+  margin-left: 10vw;
+}
+
+.project .slider{
+  display:flex;
+  align-items:flex-start;
+  position:absolute;
+  height:300px;
+  top:calc(50% - 150px); left:10vw;
+  transition: all .35s;
+}
+.project .slider li{
+  flex:none;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  width: 300px;
+  height:100%;
+  z-index: 2;
+  margin-right: 150px;
+  background:slategray;
+  border-left: 5px solid rgba(43, 43, 43, 0.7);
+  border-bottom: 5px solid rgba(43, 43, 43, 0.7);
+  transition: all .35s;
+  cursor: pointer;
+}
+.slider li:nth-child(2n){top:-30%;}
+.slider li:nth-child(3n){top:30%;}
+
+.project .slider li:last-child{
+  pointer-events: none;
+}
+
+
+.project .slider li.tab::before{
+  left: 35%;
+  animation: rotate1 linear infinite both 5000ms;
+}
+
+/* slider img*/
+.project .slider li::before{
+  content: '';
+  position: absolute;
+  top: calc(50% - 150px);
+  /* left: 35%; */
+  left: 0;
+  z-index: -1;
+  width: 300px;
+  height: 300px;
+  transition: all 0.5s;
+}
+.project .slider li:hover:before{
+  animation: rotate1 linear infinite both 5000ms;
+  left: 35%;
+}
+.project .slider li:hover a{
+  opacity: 1;
+}
+.project .slider li:hover .img-box{
+  filter: grayscale(1);
+}
+@keyframes rotate1 {
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.project .slider .gentle::before{
+  background: url(../img/gentle-lecode.png)no-repeat center;
+  background-size: cover;
+}
+.project .slider .dickies::before{
+  background: url(../img/dickies-lecode.png)no-repeat center;
+  background-size: cover;
+}
+.project .slider .card::before{
+  background: url(../img/card-lecode.png)no-repeat center;
+  background-size: cover;
+}
+.project .slider .movie::before{
+  background: url(../img/movies-lecode.png)no-repeat center;
+  background-size: cover;
+}
+.project .slider .portfolio::before{
+  background: url(../img/portfoliolecode.png)no-repeat center;
+  background-size: cover;
+}
+.project .slider .todolist::before{
+  background: url(../img/todolecode.png)no-repeat center;
+  background-size: cover;
+}
+
+
+.project .slider li .img-box{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.project .slider li .img-box .top-img{
+  object-position: top;
+}
+.project .slider li a{
+  z-index: 2;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  transition: all 0.35s;
+  opacity: 0;
+}
+
+.inner-scroll{
+  position:absolute;
+  left:50%;
+  bottom:10%;
+  transform:translateX(-50%);
+  width:80%; 
+  height:10px;
+  background:#eee;
+}
+.inner-scroll .bar{
+  position:absolute;
+  left:0;
+  top:0;
+  height:100%;
+  width:100%;
+  background-color:#392f31;
+  clip-path:polygon(0% 0%, 10px 0%, 10px 100%, 0% 100%);
+  transition:all .3s;
+}
+
+.project-box .footer{
+  position: absolute;
+  left: 50%;
+  bottom: 5%;
+  width: 343px;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.project-box .footer p{
+  color: rgb(155, 155, 155);
+  font-size: 1rem;
+}
+.project-box .footer p:first-child{
+  margin-bottom: 4px;
+}
+/* //project */
+
+
+/* 반응형 */
+@media (max-width: 1300px) {
+  /* home */
+  .bottom, .top{
+    font-size: 4.5rem;
+  }
+  .top{
+    left: 5%;
+  }
+  .bottom{
+    right: 5%;
+  }
+
+  .area1{
+    background-attachment:scroll;
+  }
+}
+
+
+
+@media (max-width:1250px) {
+  /* projectslide */
+  .profile-filter{
+    width: 850px;
+    object-fit: fill;
+  }
+  .profile-inner{
+    width: 800px;
+  }
+  .area1 .moon{
+    pointer-events: none;
+  }
+}
+
+@media (max-width: 850px) {
+  /* home */
+  .bottom, .top{
+    font-size: 3.5rem;
+  }
+
+  .txt-fixed p{
+    font-size: 2rem;
+  }
+
+  .profile{
+    height:650px;
+    top: -650px;
+  }
+  .profile-filter{
+    width: 620px;
+    object-fit: fill;
+    height: 600px;
+  }
+  .profile-inner{
+    width: 600px;
+    height: 580px;
+  }
+  .profile-inner .flex-box{
+    justify-content: center;
+  }
+  .profile-inner .flex-box .identity{
+    margin-right: 40px;
+  }
+  .profile-inner .flex-box .identity p{
+    font-size: 1.25rem;
+  }
+  .profile-inner .skill{
+    margin: 0 auto;
+    margin-top: 64px;
+    width: 500px;
+  }
+  .profile-inner .skill .skills{
+    flex-wrap: wrap;
+  }
+  .profile-btn{
+    bottom: -10%;
+  }
+  .project{
+    background: url(../img/project-m-back.png) no-repeat center;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 700px) {
+  /* home */
+  header{
+    justify-content: center;
+  }
+
+  header nav{
+    margin-right: 0;
+  }
+  .txt-fixed p{
+    font-size: 1.5rem;
+  }
+
+  
+}
+
+@media (max-width: 645px) {
+
+  /* home */
+  header nav a{
+    font-size: 1.25rem;
+  }
+
+  .txt-fixed p{
+    font-size: 1.35rem;
+  }
+
+  /* project */
+  .profile-filter{
+    display: none;
+  }
+  .profile-inner{
+    width: 343px;
+    height: 600px;
+  }
+  .profile-inner .flex-box{
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .profile-inner .flex-box .identity{
+    margin: 0 auto;
+    margin-top: 2rem;
+  }
+  .profile-inner .flex-box .url{
+    margin-right: 0;
+    margin-top: 2rem;
+  }
+  .profile-inner .flex-box .identity p{
+    font-size: 1.25rem;
+  }
+  .profile-inner .skill{
+    margin: 0 auto;
+    margin-top: 2rem;
+    width: 300px;
+  }
+  .profile-inner .skill .skills{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .profile-inner .skill .skills p{
+    margin-right: 20px;
+  }
+  .profile-inner .skill .skills .js{
+    margin-right: 0;
+  }
+  .profile-inner .skill .skills .ski2{
+    margin-top: 20px;
+  }
+  .profile-btn{
+    bottom: -5%;
+  }
+  .profile-btn p{
+    font-size: 1.25rem;
+  }
+
+  /* project item */
+  .project-fiexd .project-item{
+    width: 343px;
+  }
+  .project-fiexd .project-item .img-box{
+    width: 300px;
+    height: 200px;   
+  }
+  .project-fiexd .project-item .main-text{
+    width: 300px;
+  }
+  .project-fiexd .project-item .main-text .haed{
+    font-size: 1.25rem;
+  }
+  .project-fiexd .project-item .main-text .sub{
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  /* home */
+  header nav a{
+    font-size: 1rem;
+    margin-right: 1rem;
+  }
+  header nav a:nth-child(3){
+    margin-right: 0;
+  }
+
+  .bottom, .top{
+    font-size: 2.25rem;
+  }
+
+
+  .txt-fixed p{
+    font-size: 1.15rem;
+  }
+
+  /*project*/
+  .project-box h1{
+    font-size: 6.25rem;
+  }
+  .project-box .footer{
+    font-size: 0.625rem;
+  }
+
+  .project .back-next a{
+    font-size: 2.5rem;
+  }
+}
